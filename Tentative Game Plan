@@ -1,0 +1,39 @@
+Tentative Minesweeper Game Plan
+By Your Highness/Majesty samana zehra
+For n peasants: fizza and saahil
+
+👤 Member 1 – Board Setup & Display
+For peasant no. 1 fizza
+This member owns the foundation of the game (the playing field).
+
+Responsibilities:
+•	Board Initialization: Declare a 2D array to represent the board (hidden values: mines, numbers, empty). A second array to track player view (what’s revealed vs hidden).
+•	Mine Placement Algorithm: Use Irvine32’s random number generator to scatter mines across the grid. Ensure no duplicates when placing mines (re-roll if needed).
+•	Adjacency Logic: For each non-mine cell, calculate how many mines are around it (8-direction check). Store these numbers in the hidden array.
+•	Console Display Procedures: Write a PrintBoard PROC that prints the player’s view of the board. Use characters like # for hidden cells, numbers for revealed, and * for mines (endgame only).
+
+✅ Deliverables: A procedure that, when called, prints the current state of the board correctly.
+
+👤 Member 2 – Input & Reveal Mechanics
+For n queen samana
+This member handles the interaction and recursion.
+
+Responsibilities:
+•	User Input: Take row/col as string input and convert to integers. Validate: ensure inputs are inside the grid and not already revealed.
+•	Reveal Logic: If user hits a mine → signal loss. If number cell → reveal only that cell. If empty cell → recursively reveal neighbours until numbers are reached (implement recursion using stack frames to show off procedures + recursion).
+•	Error Handling: Invalid inputs should re-prompt without crashing.
+
+✅ Deliverables: A procedure that, given coordinates, updates the player’s board and handles recursive reveals.
+
+
+👤 Member 3 – Game Flow & State Management
+For peasant no. 2 killer ismail saahil
+This member manages the engine that ties everything together.
+
+Responsibilities:
+•	Game Loop: While game is active: call Member 1’s display, call Member 2’s input/reveal, update moves and check conditions.
+•	Win/Lose Conditions: Lose if mine is revealed, win if all safe cells are revealed, keep a counter of unrevealed safe cells to know when the player wins.
+•	Endgame Handling: Reveal full board and print a big “YOU WIN” or “YOU LOSE” message.
+•	Replay Option (optional): Ask player if they want to play again without restarting program, reinitialize board and restart loop.
+
+✅ Deliverables: A PROC that manages turns, calls other members’ routines, and decides the game outcome.
